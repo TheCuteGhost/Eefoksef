@@ -1,0 +1,140 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc105;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+/* Esto es para que no haya problemas con los margenes y el padding no se sume al tamaño de donde se use */
+*, *:before, *:after { 
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px; /* 1rem = 10px */
+    font-family: "Krub", serif;
+    background-image: linear-gradient(to top, var(--grisClaro), 0%, var(--blanco) 100%);
+}
+
+/* Definir tipografia y tamaño de letra */
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 2.8rem;
+}
+h3 {
+    font-size: 1.8rem;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+
+.titulo span { /* Esto es para cambiar el tamaño del titulo */
+    font-size: 2rem;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: .5rem;
+    width: 100%;
+}
+
+.contenedor {
+    width: 120rem; /* Esto sirve para aumentar el ancho */ 
+    margin-top: 0; /* Esto se usa para poner espacio en la parte de arriba */
+    margin-right: auto; /* Esto se usa para centrar el contenido */
+    margin-bottom: 0; /* Esto se usa para poner espacio en la parte de abajo */
+    margin-left: auto; /* Esto se usa para centrar el contenido */
+
+    margin: 0 auto; /* Esto es lo mismo que las 4 lineas anteriores */
+}
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal { /* Esto sirve para hacer que se expanda */
+    display: flex; /* Esto sirve para que los elementos se pongan en fila */
+    flex-direction: column; /* Esto sirve para que los elementos se pongan en los extremos */
+}
+
+
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .boton {
+        width: auto;
+    }
+}
+
+.navegacion-principal a {
+    text-align: center;
+    display: block;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover { /* Esto es para cambiar el color cuando se pase el mouse */
+    color: var(--primario);
+}
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+    position: relative;
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .8);
+    width: 100%;
+    height: 100%; /* Esto es para que ocupe todo el espacio */
+
+    /* Alinear contenido verticalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido-hero h2, 
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.ubicacion {
+    display: flex;
+    align-items: flex-end; /* Esto es para alinear el contenido abajo */ /* Mientras no se use flex-direction align-items servira para alinear verticalmente y no horizontal (en ese momento es flex-direction: row; */
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(130,130,130,1);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(130,130,130,1);
+    box-shadow: 0px 5px 5px 0px rgba(130,130,130,1);    
+}
