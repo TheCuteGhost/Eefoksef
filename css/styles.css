@@ -10,6 +10,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+    scroll-snap-type: y mandatory;
 }
 
 /* Esto es para que no haya problemas con los margenes y el padding no se sume al tamaño de donde se use */
@@ -20,7 +21,7 @@ html {
 body {
     font-size: 16px; /* 1rem = 10px */
     font-family: "Krub", serif;
-    background-image: linear-gradient(to top, var(--grisClaro), 0%, var(--blanco) 100%);
+    background: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
 }
 
 /* Definir tipografia y tamaño de letra */
@@ -55,6 +56,7 @@ h1, h2, h3 {
     font-weight: 700;
     border-radius: .5rem;
     width: 100%;
+    border: none;
 }
 
 .contenedor {
@@ -65,6 +67,7 @@ h1, h2, h3 {
     margin-left: auto; /* Esto se usa para centrar el contenido */
 
     margin: 0 auto; /* Esto es lo mismo que las 4 lineas anteriores */
+    
 }
 
 .nav-bg {
@@ -86,6 +89,14 @@ h1, h2, h3 {
     .boton {
         width: auto;
     }
+    .enviar {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
 }
 
 .navegacion-principal a {
@@ -108,6 +119,7 @@ h1, h2, h3 {
     background-size: cover;
     height: 45rem;
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .contenido-hero {
@@ -137,4 +149,103 @@ h1, h2, h3 {
     -webkit-box-shadow: 0px 5px 5px 0px rgba(130,130,130,1);
     -moz-box-shadow: 0px 5px 5px 0px rgba(130,130,130,1);
     box-shadow: 0px 5px 5px 0px rgba(130,130,130,1);    
+    padding: 2rem;
+    background-color: var(--blanco);
+    border-radius: 1rem;
+}
+
+/* Seccion de servicios */
+
+@media (min-width: 768px) {
+    .servicio {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Esto es para que se pongan en 3 columnas y que se divida en 3 fracciones iguales */
+        gap: 2rem; /* Esto es para poner espacio entre los elementos */
+    }
+}
+
+/* Se usa flexbox para distribuir los elementos  dentro de contenedores*/
+/* Y css grid para distribuir los contenedores */
+
+.servicio,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center; /* Esto es para que se alinee al centro */
+    scroll-snap-stop: always; /* Esto es para que se detenga en el centro */
+}
+
+.servicios {
+    display: flex; 
+    flex-direction: column; /* Esto es para que los elementos se pongan en columna */
+    align-items: center; /* Esto es para que los elementos se pongan en el centro */
+}
+
+.servicios p {
+    line-height: 2;
+    text-align: center;
+}
+
+.servicios .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex; /* Esto es para que los elementos se pongan en fila y los iconos se pongan sobre otro*/
+    justify-content: center; /* Esto es para que los elementos se pongan en el centro horizontalmente */
+    align-items: center; /* Esto es para que los elementos se pongan en el centro y verticalmente*/
+}
+
+.formulario {
+    background-color: var(--gris);
+    width: min(60 rem, 100%); /* Esto es para que el ancho sea de 60rem si hay espacio de sobra si no usara el 100% del espacio que tenga */
+    margin: 0 auto; /* Esto es para centrar el contenido y no se usa justify-content porque no tiene un padre que contenga display: flex; */
+    padding: 2rem; 
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none; /* Esto es para quitar el borde */
+}
+
+.formulario legend {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+.contenedor-campos {
+
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    display: block; /* Esto es para que cada objeto tome una parte y el siguiente vaya abajo */
+    margin-bottom: 1rem;
+}
+
+.campo textarea {
+    height: 20rem;
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+.input-text {
+    width: 100%;
+    border: 100%;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    border: none;
+}
+
+.enviar .boton {
+    width: auto;
 }
